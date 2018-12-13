@@ -1,0 +1,26 @@
+a docker setup for a linux container running apache and using python/wsgi/flask accepting input on port 80
+
+Build with:
+docker build -t container_name path_to_folder_containing_dockerfile <- can be relative path
+
+Run with:
+docker run -p 8080:80 --name container_instance_name -d container_name    (-p forwards docker port 80 to localhost port 8080 in this case)
+
+Interactive Run:
+docker run -i -t -p 8080:80 --name container_instance_name container_name /bin/bash
+
+Stop with:
+docker stop container_instance_name
+
+Remove instance with:
+docker rm container_instance_name
+
+List instances:
+docker ps -a
+
+
+:Personal Shortcuts:
+
+docker build -t backend c:\projects\docker\py_backend
+
+docker run -p 8080:80 --name rearguard -d backend
